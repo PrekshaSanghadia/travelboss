@@ -52,7 +52,7 @@ app.listen(8080, (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("Root is working");
+    res.redirect("/listings");
 });
 
 const store = MongoStore.create({
