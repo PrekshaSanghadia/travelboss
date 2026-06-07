@@ -1,0 +1,119 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    width: 100%;
+    flex: 1;
+}
+.navbar{
+    height: 5rem;
+    background-color: white !important;
+}
+
+.navbar-brand{
+    color:crimson;
+    font-size: 2rem;
+}
+
+.navbar-nav{
+    color: #222 !important;
+}
+.f-info-socials, .f-info-brand, .f-info-links{
+    width: 100%;
+    text-align: center;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: black;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-socials i{
+    margin-left: 1.2rem;
+}
+
+.f-info{
+    height: 8rem;
+    background-color:#ebebeb;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    padding-top: 1rem;
+}
+
+.card{
+    border: none !important;
+    margin-bottom: 2rem;
+    margin: 0.25rem;
+}
+
+.card-img-top{
+    border-radius: 1.25rem !important;
+    width: 100% !important;
+    height: 18rem !important;
+    object-fit: cover !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card:hover .card-img-overlay{
+    opacity: 0.2;
+    background-color: white;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.info{
+    list-style: none;
+}
+
+.show-contents{
+    display: flex;
+    flex-direction: row;
+}
+.show-img{
+    width: 100% !important;
+    height: 350px;
+    object-fit: cover;
+}
+
+.card-text{
+    width: 100% !important;
+    padding : 10px 0;
+}
+
+.btns{
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.review-form{
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+}
+
+.review-card{
+    border: 1px solid #ddd !important;
+    border-radius: 10px;
+    padding: 6px;
+    transition: 0.2s;
+}
+
+.review-card:hover{
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+}

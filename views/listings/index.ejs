@@ -1,0 +1,127 @@
+<%layout("/layouts/boilerplate")%>
+<style>
+  #filter {
+    display: flex;
+    padding: 20px;
+  }
+  .filter {
+    text-align: center;
+    margin-right: 20px;
+    opacity: 0.7;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .filter:hover {
+    opacity: 1;
+  }
+
+  #navbox {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .tax-toggle {
+    border: black solid 1px;
+    border-radius: 1rem;
+    padding: 12px 28px;
+    margin-left: 20px;
+
+    padding-left: -10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tx-info{
+    display: inline;
+  }
+
+
+</style>
+<body>
+   <div id="navbox">
+    <div id="filter">
+    <div class="filter">
+      <i class="fa-solid fa-fire"></i>
+      <p>Trending</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-bed"></i>
+      <p>Rooms</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-person-swimming"></i>
+      <p>Amazing Pools</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-cow"></i>
+      <p>Farms</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-mountain"></i>
+      <p>Mountains</p>
+    </div>
+    <div class="filter">
+      <i class="fa-brands fa-fort-awesome"></i>
+      <p>Castles</p>
+    </div>
+   </div>
+   <div class="tax-toggle">
+      <div class="form-check form-switch form-check-reverse">
+        <input class="form-check-input" type="checkbox" id="switchCheckReverse">
+        <label class="form-check-label" for="switchCheckReverse">Total rent after tax</label>
+      </div>
+    </div>
+   </div>
+    <ul>
+      <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1">
+        <%for(let listing of allListings){%>
+        <!-- <li><a href="/listings/<%=listing._id%>"><%=listing.title%></a></li> -->
+         <a href="/listings/<%=listing._id%>" class="listing-link">
+          <div class="card" style="width: 18rem;">
+          <img src="<%=listing.image.url%>" class="card-img-top" alt="listing_images">
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <p class="card-text">
+              <strong><%=listing.title%></strong><Br>
+              <span class="price" data-price="<%=listing.price%>">&#8377;<%=listing.price.toLocaleString("en-IN")%></span> per night &nbsp; &nbsp; <i class="tx-info">+18% GST</i><br>
+              <%=listing.country%><br>
+            </p>
+          </div>
+        </div>
+         </a>
+       <%}%>
+      </div>
+   </ul>
+   <!-- <form method="GET" action="/listings/new">
+        <button>Add Listing +</button>
+    </form> -->
+</body>
+
+<script>
+  const taxSwitch = document.getElementById("switchCheckReverse");
+  taxSwitch.addEventListener("click", () => {
+    let taxInfo = document.getElementsByClassName("tx-info");
+    let priceInfo = document.getElementsByClassName("price");
+    for(info of taxInfo){
+      if(info.style.display === "none"){
+        info.style.display = "inline";
+        
+      } else {
+        info.style.display = "none";
+      } 
+    }
+
+    for(price of priceInfo){
+      let basePrice = parseInt(price.dataset.price);
+      if(taxSwitch.checked){
+        price.innerHTML = `&#8377;${(basePrice * 1.18).toLocaleString("en-IN")}`;
+      } else {
+        price.innerHTML = `&#8377;${basePrice.toLocaleString("en-IN")}`;
+      }
+    }
+  });
+</script>

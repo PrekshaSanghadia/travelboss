@@ -1,0 +1,43 @@
+<style>
+  .searchb {
+      border-radius: 2rem;
+      background-color: crimson;
+      color: white;
+  }
+
+  .searchi{
+    border-radius: 2rem;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="fa-brands fa-avianex"></i> Travelboss</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+      <div class="navbar-nav ms-auto mt-3">
+        <form class="d-flex" role="search" method="GET" action="/listings/searchDestinations">
+          <input class="form-control me-2 searchi" type="text" placeholder="Search destination city" aria-label="Search" name="location" value="<%= typeof currentSearch !== 'undefined' ? currentSearch : ''%>"/>
+          <button class="btn btn-search searchb" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new"><b>Airbnb your place</b></a>
+        <% if(!currUser){ %>
+          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %>
+        <% if(currUser){ %>
+          <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+

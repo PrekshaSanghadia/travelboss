@@ -1,0 +1,28 @@
+<%layout("/layouts/boilerplate")%>
+
+<body>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h3>Sign Up on Travelboss</h3>
+            <form action="/signup" method="POST" class="needs-validation" novalidate>
+                <div>
+                    <label for="email" class="form-label">Email: </label>
+                    <input type="email" name="email" id="email" placeholder="abc@gmail.com" class="form-control" required>
+                    <div class="invalid-feedback">Enter a valid email</div>
+                </div><br>
+                <div>
+                    <label for="username" class="form-label">Username: </label>
+                    <input type="text" name="username" id="username" placeholder="Enter a username" class="form-control" required>
+                    <div class="invalid-feedback">Enter a valid username</div>
+                    <div class="valid-feedback">username looks good!</div>
+                </div><br>
+                <div>
+                    <label for="password" class="form-label">Password: </label>
+                    <input type="password" name="password" id="password"  class="form-control" required>
+                    <div class="invalid-feedback">Enter a valid password</div>
+                </div><br>
+                <button class="btn btn-dark">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
