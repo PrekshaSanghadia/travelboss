@@ -7,3 +7,5 @@ Travelboss is a full-stack web application designed for exploring and managing t
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB Atlas (MongoDB ODM)
 - **Session Management:** Connect-Mongo, Express-Session
+
+- Deployed Project: https://travelboss-ky3b.onrender.com
